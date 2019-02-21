@@ -17,6 +17,9 @@ if (!checkVersion()) {
 
 const nodeModulesDir = path.join(__dirname, 'node_modules');
 const list = fs.readdirSync(nodeModulesDir, { withFileTypes: true });
+if (list.length === 0) {
+  return console.log('NO symbolic link found')
+}
 list
   .filter(packageObj => packageObj.isSymbolicLink())
   .forEach((symLinkObj) => {
