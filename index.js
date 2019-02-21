@@ -15,7 +15,7 @@ if (!checkVersion()) {
   return console.error('NodeJS version should be >= 10');
 }
 
-const nodeModulesDir = path.join(__dirname, 'node_modules');
+const nodeModulesDir = path.join('.', 'node_modules');
 const list = fs.readdirSync(nodeModulesDir, { withFileTypes: true });
 if (list.length === 0) {
   return console.log('NO symbolic link found')
