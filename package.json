@@ -1,0 +1,9 @@
+{
+  "name": "yarn-unlink-all",
+  "version": "0.1.0",
+  "description": "Simple script that unlinks all packages linked to the current project",
+  "main": "index.js",
+  "author": "Alexey Frolov <gsorcal@gmail.com>",
+  "license": "MIT",
+  "private": false
+}
