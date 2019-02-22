@@ -4,27 +4,19 @@ const fs = require('fs');
 const path = require('path');
 
 
-const REQUIRED_NODE_VERSION = 10;
-
-function checkVersion() {
-  const versionMatch = process.version.match(/^v(\d+)\..+/);
-  return !!versionMatch && versionMatch[1] && parseInt(versionMatch[1], 10) >= REQUIRED_NODE_VERSION;
-}
-
-if (!checkVersion()) {
-  return console.error('NodeJS version should be >= 10');
-}
-
 const nodeModulesDir = path.join('.', 'node_modules');
-const list = fs.readdirSync(nodeModulesDir, { withFileTypes: true });
-if (list.length === 0) {
-  return console.log('NO symbolic link found')
+const packageNamelist = fs.readdirSync(nodeModulesDir);
+if (packageNamelist.length === 0) {
+  return console.log('No symbolic links found')
 }
-list
-  .filter(packageObj => packageObj.isSymbolicLink())
-  .forEach((symLinkObj) => {
-    fs.unlink(path.join(nodeModulesDir, symLinkObj.name), (err) => {
+
+packageNamelist.forEach((packageName) => {
+  const packagePath = path.join(nodeModulesDir, packageName);
+  const dirStat = fs.lstatSync(packagePath);
+  if (dirStat.isSymbolicLink()) {
+    fs.unlink(packagePath, (err) => {
       if (err) throw err;
-      console.log(`${symLinkObj.name} has been unlinked`);
+      console.log(`${packageName} has been unlinked`);
     });
-  });
+  }
+});
