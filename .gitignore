@@ -1,1 +1,4 @@
 .idea
+.npmrc
+node_modules
+yarn-error.log
