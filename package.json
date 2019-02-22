@@ -1,5 +1,5 @@
 {
-  "name": "yarn-unlink-all",
+  "name": "node-unlink",
   "version": "0.3.0",
   "description": "Simple script that unlinks all packages linked to the current project",
   "main": "index.js",

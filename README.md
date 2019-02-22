@@ -1,4 +1,4 @@
-# yarn-unlink-all
+# node-unlink
 Simple script that unlinks all packages linked to the current project
 
 ## Getting Started
