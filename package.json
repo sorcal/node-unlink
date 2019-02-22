@@ -1,6 +1,6 @@
 {
   "name": "node-unlink",
-  "version": "0.4.2",
+  "version": "0.4.3",
   "description": "Simple script that unlinks all packages linked to the current project",
   "main": "index.js",
   "author": "Alexey Frolov <gsorcal@gmail.com>",
