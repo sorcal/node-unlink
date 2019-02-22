@@ -8,7 +8,7 @@ const nodeModulesDir = path.join('.', 'node_modules');
 const packageNamelist = fs.readdirSync(nodeModulesDir);
 
 let noLinkedModulesFound = true;
-packageNamelist.filter((packageName) => {
+packageNamelist.forEach((packageName) => {
   const packagePath = path.join(nodeModulesDir, packageName);
   const dirStat = fs.lstatSync(packagePath);
   if (dirStat.isSymbolicLink()) {
